@@ -317,12 +317,12 @@ public class Grade_Materias extends javax.swing.JFrame {
                         .addComponent(seg_att)
                         .addComponent(seg_del))
                     .addComponent(seg_s, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel25)
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(seg_h, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel2)
                         .addComponent(jLabel4)
-                        .addComponent(seg_m, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(seg_m, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel25)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane18, javax.swing.GroupLayout.DEFAULT_SIZE, 460, Short.MAX_VALUE)
                 .addContainerGap())
@@ -1979,27 +1979,27 @@ public class Grade_Materias extends javax.swing.JFrame {
                 fNormal.setColor(BaseColor.WHITE);
                 fTitulo.setColor(BaseColor.WHITE);
                 
-                PdfPTable pdfTable       = new PdfPTable(tabelaPrint.getColumnCount());
+                PdfPTable pdfTable       = new PdfPTable(tabelaPrint.getColumnCount()-1);
                 PdfPCell  pdfCell        =  new PdfPCell( new Phrase(semanas[index], f) );
                 
                 if(index==0 && cmb_grade.getSelectedItem().toString() != "Selecione")
                 {
                     PdfPCell  pdfCellPeriodo  =  new PdfPCell( new Phrase(cmb_grade.getSelectedItem().toString(), fPeriodo) );
                     pdfCellPeriodo.setColspan(10);
-                    pdfCellPeriodo.setBackgroundColor(BaseColor.BLUE);
+                    pdfCellPeriodo.setBackgroundColor(new BaseColor(113, 176, 214));
                     pdfCellPeriodo.setHorizontalAlignment(Element.ALIGN_CENTER);
                     pdfTable.addCell(pdfCellPeriodo);
                 }
                 
                 
                 pdfCell.setColspan(10);
-                pdfCell.setBackgroundColor(BaseColor.YELLOW);
+                pdfCell.setBackgroundColor(new BaseColor(234, 215, 138));
                 pdfCell.setHorizontalAlignment(Element.ALIGN_CENTER);
                 pdfTable.addCell(pdfCell);
                
                 
                 //adding tabelaPrint headers
-                for (int i = 0; i < tabelaPrint.getColumnCount(); i++) {
+                for (int i = 1; i < tabelaPrint.getColumnCount(); i++) {
                     PdfPCell  pdfCellTitulo  =  new PdfPCell( new Phrase(tabelaPrint.getColumnName(i), fTitulo) );    
                     pdfCellTitulo.setBackgroundColor(BaseColor.BLACK);
                     pdfCellTitulo.setHorizontalAlignment(Element.ALIGN_CENTER);
@@ -2008,11 +2008,11 @@ public class Grade_Materias extends javax.swing.JFrame {
                 
                 for(int rows = 0; rows < tabelaPrint.getRowCount(); rows++)
                 {
-                    for(int coluns = 0; coluns < tabelaPrint.getColumnCount(); coluns++)
+                    for(int coluns = 1; coluns < tabelaPrint.getColumnCount(); coluns++)
                     {
                         System.out.println(tabelaPrint.getValueAt(rows, coluns).toString());
                         PdfPCell  pdfCellNormal =  new PdfPCell( new Phrase(tabelaPrint.getValueAt(rows, coluns).toString(), fNormal) );
-                                       
+                        
                         pdfCellNormal.setBackgroundColor(BaseColor.DARK_GRAY);
                         pdfCellNormal.setHorizontalAlignment(Element.ALIGN_LEFT);
                         pdfTable.addCell(pdfCellNormal);

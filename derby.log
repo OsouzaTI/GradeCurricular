@@ -1,6 +1,6 @@
 ----------------------------------------------------------------
-Tue Jan 14 00:05:02 BRT 2020:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.9.1.0 - (1344872): instance a816c00e-016f-a202-fdc3-000006766c68 
+Fri Jan 17 17:48:55 BRT 2020:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.9.1.0 - (1344872): instance a816c00e-016f-b544-1470-000006779028 
 on database directory C:\Users\osouza\Documents\NetBeansProjects\GradeCurricular_netbeans8\dbgrade  with class loader sun.misc.Launcher$AppClassLoader@55f96302 
 Loaded from file:/C:/Users/osouza/Documents/NetBeansProjects/GradeCurricular_netbeans8/lib/derby.jar
 java.vendor=Oracle Corporation
